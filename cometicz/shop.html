@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty - Product List</title>
+    <link rel="icon" href="logo.jpg">
+    <link rel="stylesheet" href="idx_css.css">
+    <style>
+        body {
+            background-image: url(bgn.webp);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            margin: 0;
+            color: rgb(253, 253, 253);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .contain {
+            width: 90%;
+            max-width: 1200px;
+            text-align: center;
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        header {
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 15px;
+            border-bottom: 1.5px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .title {
+            font-size: 2.8rem;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            color: #eee;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+        }
+
+        header .icon {
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease-out;
+        }
+
+        header .icon:hover {
+            transform: scale(1.1);
+        }
+
+        header .icon svg {
+            fill: none;
+            stroke: #fff;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 2;
+            width: 35px;
+            height: 35px;
+            transition: stroke 0.3s ease-out;
+        }
+
+        header .icon:hover svg {
+            stroke: #aaf;
+        }
+
+
+        header .icon span {
+            display: flex;
+            width: 28px;
+            height: 28px;
+            background-color: #e74c3c;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            border-radius: 50%;
+            position: absolute;
+            top: -8px;
+            right: -12px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+            transition: background-color 0.3s ease-out, transform 0.3s ease-out;
+        }
+
+        header .icon:hover span {
+            background-color: #f06050;
+            transform: scale(1.1);
+        }
+
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 35px;
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(8px);
+            border-radius: 20px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+        }
+
+        .products .item {
+            background-color: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(8px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+            cursor: pointer;
+        }
+
+        .products .item:hover {
+            transform: scale(1.04);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+
+        .products .item img {
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            height: 50%;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            transition: filter 0.4s ease-out;
+            filter: brightness(0.9);
+        }
+
+        .products .item:hover img {
+            filter: brightness(1.1);
+        }
+
+
+        .products .item h2 {
+            font-weight: 600;
+            font-size: 1.6rem;
+            color: #f0f0f0;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            text-shadow: 0 0 4px rgba(255, 255, 255, 0.15);
+        }
+
+        .products .item .price {
+            letter-spacing: 6px;
+            font-size: 1.2rem;
+            color: #ddd;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            text-shadow: 0 0 3px rgba(255, 255, 255, 0.08);
+        }
+
+        .products .item button {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #eee;
+            padding: 12px 25px;
+            border-radius: 30px;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            transition: background-color 0.3s ease-out, transform 0.3s ease-out, box-shadow 0.3s ease-out;
+        }
+
+        .products .item button:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+            transform: scale(1.03);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .products .item button:active {
+            transform: scale(0.98);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .contain {
+                padding: 20px;
+            }
+            .title {
+                font-size: 2.4rem;
+            }
+            .products {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 25px;
+                padding: 20px;
+            }
+            .products .item {
+                padding: 20px;
+            }
+            .products .item img {
+                margin-bottom: 15px;
+            }
+            .products .item h2 {
+                font-size: 1.3rem;
+                margin-bottom: 10px;
+            }
+            .products .item .price {
+                font-size: 1.1rem;
+                margin-bottom: 15px;
+            }
+            .products .item button {
+                padding: 10px 20px;
+                font-size: 1rem;
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contain">
+        <header>
+            <div class="title">PRODUCT LIST</div>
+            <div class="icon">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
+                </svg>
+                <span>0</span>
+            </div>
+        </header>
+        <div class="products">
+            <div class="item">
+                <img src="cream_.jpeg" alt="Product Image">
+                <h2>Product Name 1</h2>
+                <div class="price">$ 150</div>
+                <button class="add">Add to cart</button>
+            </div>
+            <div class="item">
+                <img src="hair.oil_.jpeg" alt="Product Image">
+                <h2>Product Name 2</h2>
+                <div class="price">$ 180</div>
+                <button class="add">Add to cart</button>
+            </div>
+            <div class="item">
+                <img src="face.w_.jpeg" alt="Product Image">
+                <h2>Product Name 3</h2>
+                <div class="price">$ 220</div>
+                <button class="add">Add to cart</button>
+            </div>
+            <div class="item">
+                <img src="lp_.jpeg" alt="Product Image">
+                <h2>Product Name 4</h2>
+                <div class="price">$ 120</div>
+                <button class="add">Add to cart</button>
+            </div>
+            <div class="item">
+                <img src="lotion_.jpeg" alt="Product Image">
+                <h2>Product Name 5</h2>
+                <div class="price">$ 250</div>
+                <button class="add">Add to cart</button>
+            </div>
+            <div class="item">
+                <img src="sc_.jpeg" alt="Product Image">
+                <h2>Product Name 6</h2>
+                <div class="price">$ 190</div>
+                <button class="add">Add to cart</button>
+            </div>
+            <div class="item">
+                <img src="pow_.jpeg" alt="Product Image">
+                <h2>Product Name 7</h2>
+                <div class="price">$ 210</div>
+                <button class="add">Add to cart</button>
+            </div>
+            <div class="item">
+                <img src="lp2_.jpeg" alt="Product Image">
+                <h2>Product Name 8</h2>
+                <div class="price">$ 160</div>
+                <button class="add">Add to cart</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
