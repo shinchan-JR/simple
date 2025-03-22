@@ -62,7 +62,7 @@
             font-size: 1rem;
         }
         #log:hover,
-        :focus {
+        #log:focus {
             color: #ffffff;
             background: #008cff;
             border: 1px solid #008cff;
@@ -106,7 +106,7 @@
             justify-content: space-around;
             left: 30%;
             transform: translate(-50%, -50%);
-            width: 80%;
+            width: 90%;
             max-width: 700px;
             color: inherit;
             margin: 20px auto;
@@ -148,7 +148,7 @@
         }
 
         #self {
-            padding-left: 200px;
+            /* padding-left: 200px; */
             position: sticky;
             top: 15%;
             font-size: 15px;
@@ -171,7 +171,7 @@
         }
         #off img:hover {
             animation: none;
-        } */
+        } 
 
         @keyframes off {
             0% {
@@ -184,9 +184,7 @@
                 transform:scale(0.2)
             }
         }
-        #dis:hover {
-            transform:rotate();
-        }
+            */
         @media (max-width: 768px) {
             #head {
                 flex-direction: column;
@@ -195,7 +193,7 @@
             #head_lft, #nav {
                 margin-top: 10px;
             }
-            h2 {
+            #head h2 {
                 font-size: 1.5rem;
             }
         }
@@ -469,7 +467,7 @@
             justify-content: space-around;
             padding: 80px 5%;
             max-width: 1200px;
-            margin: 20px auto;
+            margin: 20px 50px;
             border-radius: 10px;
             background: rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(10px);
@@ -604,7 +602,7 @@
         #why-choose-us {
             padding: 60px 5%;
             max-width: 1200px;
-            margin: 30px auto;
+            margin: 30px 50px;
             text-align: center;
             background: rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(10px);
@@ -745,7 +743,8 @@
             color: #ccc;
             padding: 30px 5%;
             text-align: center;
-            margin-top: 50px; /* Add space between content and footer */
+            margin-top: 50px;
+            /* margin-bottom: 30px; */
         }
 
         .footer-content {
@@ -815,20 +814,21 @@
             color: #999;
         }
         #signup-container {
-    display: none; /* Hidden by default */
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: auto;
-    padding: 0;
-    background-color: transparent;
-    backdrop-filter: blur(10px);
-    z-index: 1001;
-    text-align: center;
-    border-radius: 10px;
-    animation: fadeIn 0.3s ease-out forwards;
-}
+            display: none;
+            visibility: visible;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: auto;
+            padding: 0;
+            background-color: transparent;
+            backdrop-filter: blur(10px);
+            z-index: 1001;
+            text-align: center;
+            border-radius: 10px;
+            animation: fadeIn 0.3s ease-out forwards;
+        }
 
 #signup-form {
     padding: 30px;
@@ -997,7 +997,37 @@
     opacity: 1;
     color: #eee;
 }
-    </style>
+
+.scroll {
+    flex-wrap: wrap;
+}
+
+.block {
+    animation: appear 8s linear;
+    animation-timeline: view();
+    animation-range: entry 0%;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        scale: 0.4;
+    }
+    50% {
+        opacity: 0.5;
+        scale: 0.4;
+    }
+    100% {
+        opacity: 1;
+        scale: 1;
+    }
+}
+#signup-link:hover {
+    color: #008cff; 
+    transform: translateX(3px); 
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.15);
+}
+</style>
 </head>
 <body>
     <div id="head">
@@ -1013,7 +1043,8 @@
     <div id="dis" style="margin-top: 22%;"> <h2 class="qut">"Cosmetics are poetry </h2><h2 class="qut">in color, a brushstroke of confidence, and </h2><h2 class="qut">a whisper of elegance"</h2>
         <marquee behavior="scroll" direction="left" loop="" scrollamount="6px" scrolldelay="0.1s"><p id="self">We prioritize clean, cruelty-free, and dermatologically approved formulations, ensuring that you can indulge in beauty with confidence.</p></marquee>
     </div>
-
+    <div class="scroll">
+    <div class="block">
     <section id="hero">
         <div id="hero-left">
             <h1 style="-webkit-text-fill-color: #fff;">Discover Your Inner Radiance</h1>
@@ -1024,9 +1055,9 @@
             <img src="hero-image.webp" alt="Beauty Products" style="max-width: 80%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);">
         </div>
     </section>
-
+    </div>
     <!-- <div id="off"><a href="shop.html"><img src="off_.jpeg" alt=""></a></div> -->
-
+    <div class="block">
     <section id="featured-products">
         <h2 style="-webkit-text-fill-color: #fff;">Featured Products</h2>
         <div class="product-grid">
@@ -1050,7 +1081,8 @@
             </div>
         </div>
     </section>
-
+    </div>
+    <div class="block">
     <section id="why-choose-us">
         <h2 style="-webkit-text-fill-color: #fff;">Why Choose Beautix?</h2>
         <div class="reasons-grid">
@@ -1076,7 +1108,8 @@
             </div>
         </div>
     </section>
-
+    </div>
+    <div class="block">
     <section id="testimonials">
         <h2 style="-webkit-text-fill-color: #fff;">What Our Customers Say</h2>
         <div class="testimonial-card">
@@ -1084,6 +1117,7 @@
             <p class="author" style="font-weight: bold; color: #eee; font-style: italic;">- Pooja . J</p>
         </div>
     </section>
+    </div>
 
     <!-- <div id="txt" style="margin-top: 40px;"> <h3 id="pro">Products&nbsp;</h3>
         <p id="com">Our website offers a curated selection of high-quality cosmetic products designed to enhance your natural beauty and promote self-care. From luxurious skincare essentials that nourish and revitalize, to vibrant makeup collections that inspire creativity, we provide a diverse range of items to meet your individual needs. We prioritize products that are both effective and ethically sourced, ensuring that you can feel confident and beautiful, inside and out. Whether you're seeking everyday essentials or special occasion indulgences, our collection caters to all skin types and preferences, empowering you to express your unique style and embrace your inner radiance.</p>
@@ -1142,7 +1176,7 @@
                 </div>
             </div>
             <div id="signup-options">
-                <button id="signup-btn" onclick="validateSignup()">Sign Up</button>
+                <a href="#" id="signup-link">Sign Up</a>
                 <p style="text-align: center; color: #bbb; margin-top: 15px;">Already have an account? <a href="#" id="show-login" style="color: #eee; text-decoration: underline;">Log in</a></p>
                 <div style="text-align: center; color: #ddd; margin-top: 20px;">
                     Or
@@ -1154,7 +1188,8 @@
             </div>
         </div>
     </div>
-</div>
+    </div>
+    <div class="block">
     <footer>
         <div class="footer-content">
             <h3>About Beautix</h3>
@@ -1176,18 +1211,18 @@
             <p class="copyright">&copy; 2024 Beautix. All rights reserved.</p>
         </div>
     </footer>
-
+    </div>
+</div>
 
     <script>
-        const loginButton = document.getElementById('log');
+const loginButton = document.getElementById('log');
         const loginContainer = document.getElementById('login-container');
         const closeLoginButton = document.getElementById('close-login');
         const pageOverlay = document.getElementById('overlay'); // Get page overlay element
 
         loginButton.addEventListener('click', () => {
             loginContainer.style.display = 'flex';
-            pageOverlay.style.display = 'block'; // Show page overlay when login opens
-            // Pre-fill login-id if cached
+            pageOverlay.style.display = 'block';
             const cachedLoginId = localStorage.getItem('loginId');
             if (cachedLoginId) {
                 document.getElementById('login-id').value = cachedLoginId;
@@ -1196,7 +1231,7 @@
 
         closeLoginButton.addEventListener('click', () => {
             loginContainer.style.display = 'none';
-            pageOverlay.style.display = 'none'; // Hide page overlay when login closes
+            pageOverlay.style.display = 'none';
         });
 
         let captchaText = "";
@@ -1217,11 +1252,9 @@
 
             if (userInput === captchaText) {
                 alert("Login successful!");
-                // Cache login-id (for demonstration - in real app, cache after proper authentication)
                 localStorage.setItem('loginId', loginId);
                 loginContainer.style.display = 'none';
-                pageOverlay.style.display = 'none'; // Hide page overlay on successful login as well
-                // In a real application, you would typically redirect the user or perform other actions upon successful login.
+                pageOverlay.style.display = 'none';
             } else {
                 alert("Incorrect captcha. Please try again.");
                 generateCaptcha();
@@ -1234,11 +1267,49 @@
         }
 
         function signUp() {
-            alert("Sign Up functionality would be implemented here.");
+            // alert("Sign Up functionality would be implemented here."); // Removed the alert
+
+            loginContainer.style.display = 'none'; // Hide login container
+            signupContainer.style.display = 'flex'; // Show signup container
+            pageOverlay.style.display = 'block'; // Show overlay
         }
 
         generateCaptcha();
 
+        const signupLinkBtn = document.getElementById('signup-link'); // Corrected ID to 'signup-link'
+        const signupContainer = document.getElementById('signup-container');
+        const closeSignupButton = document.getElementById('close-signup');
+
+        signupLinkBtn.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent the default link behavior (if it's an <a> tag)
+            loginContainer.style.display = 'none'; // Hide login container
+            signupContainer.style.display = 'flex'; // Show signup container
+            pageOverlay.style.display = 'block'; // Show overlay
+        });
+
+        closeSignupButton.addEventListener('click', () => {
+            signupContainer.style.display = 'none';
+            pageOverlay.style.display = 'none';
+        });
+
+        const showLoginLink = document.getElementById('show-login');
+        if (showLoginLink) {
+            showLoginLink.addEventListener('click', (event) => {
+                event.preventDefault();
+                signupContainer.style.display = 'none';
+                loginContainer.style.display = 'flex';
+            });
+        }
+
+        function validateSignup() {
+            // Add your signup validation logic here
+            alert("Sign Up functionality would be implemented here (validation needed!).");
+        }
+
+        // Initially hide the signup container
+        if (signupContainer) {
+            signupContainer.style.display = 'none';
+        }
     </script>
 </body>
 </html>
