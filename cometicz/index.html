@@ -6,6 +6,7 @@
     <title>Beauty</title>
     <link rel="icon" href="logo.jpg">
     <link rel="stylesheet" href="idx_css.css">
+    <script src="https://kit.fontawesome.com/3af9365c3d.js" crossorigin="anonymous"></script>
     <style>
         body {
             /* background-color: #F5E8DA; */
@@ -19,7 +20,8 @@
         }
         #login-btn {
             position: relative;
-            left: 80px;
+            left: 70px;
+            top: 7px;
             padding: 12px 25px;
             margin-bottom: 20px;
         }
@@ -47,6 +49,20 @@
             background: linear-gradient(to right, #fffefdf8, rgba(240, 255, 255, 0.473));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: typing 2s steps(23, end), blink-caret .1s step-end infinite;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: .15em solid transparent;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 10%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #000; }
         }
         #nav {
             display: flex;
@@ -61,13 +77,13 @@
             cursor: pointer;
             font-size: 1rem;
         }
-        #log:hover,
-        #log:focus {
+        #log:hover,#log:focus {
             color: #ffffff;
+            transition: background-color 1s ease;
             background: #008cff;
             border: 1px solid #008cff;
             text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
-            box-shadow: 0 0 5px #008cff, 0 0 20px #008cff, 0 0 50px #008cff,
+            box-shadow: 0 0 10px #008cff, 0 0 20px #008cff, 0 0 50px #008cff,
                 0 0 100px #008cff;
         }
 
@@ -110,12 +126,13 @@
             max-width: 700px;
             color: inherit;
             margin: 20px auto;
+            /* animation: quote 5s ease-in-out 1; */
         }
 
         .qut {
             -webkit-text-fill-color:#fffefe;
             font-size: 26px;
-            animation: quote 5s ease-in-out 1;
+            animation: quote 2s ease-in-out 1;
             font-weight: lighter;
             max-width: 500px;
             /* margin-top: 5%; */
@@ -131,11 +148,11 @@
                 transform: translateY(30px);
             }
             50% {
-                opacity: 1;
-                transform: translateY(0);
+                opacity: 0.5;
+                transform: translateY();
             }
             100% {
-                opacity: 2;
+                opacity: 1;
                 transform: translateY(0);
             }
         }
@@ -212,12 +229,14 @@
             z-index: 1001; /* Ensure login form is on top of page overlay */
             text-align: center;
             border-radius: 10px;
-            animation: fadeIn 0.3s ease-out forwards;
+            animation: fadeIn 0.8s ease-in forwards;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translate(-50%, -55%); }
-            to { opacity: 1; transform: translate(-50%, -50%); }
+            from { 
+                opacity: 0; transform: translate(-50%, -58%); }
+            to { 
+                opacity: 1; transform: translate(-50%, -50%); }
         }
 
         #login-form {
@@ -273,12 +292,12 @@
 
         .input-group label:hover {
             color: #fff;
-            text-shadow: 0 0 3px rgba(255, 255, 255, 0.2);
+            text-shadow: 0 3px 5px #008cff;
             transform: translateY(-3px);
         }
 
         .input-group input {
-            width: calc(100% - 30px); /* Input width adjusted to account for padding */
+            width: calc(100% - 30px);
             padding: 12px 15px;
             border: none;
             border-bottom: 1.5px solid #555;
@@ -288,14 +307,15 @@
             color: #eee;
             transition: border-bottom-color 0.2s, text-shadow 0.2s;
             text-shadow: 0 0 1px rgba(255, 255, 255, 0.03);
-            box-sizing: border-box; /* Ensure padding is inside the width */
+            box-sizing: border-box;
         }
 
         .input-group input:focus {
             border-bottom-color: #eee;
             outline: none;
-            text-shadow: 0 0 3px rgba(255, 255, 255, 0.25);
-            box-shadow: none;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px #008cff;
+            text-shadow: 0 0 3px rgba(255, 255, 255, 0.25); 
         }
 
         #captcha-container {
@@ -303,21 +323,30 @@
             align-items: stretch;
             justify-content: space-between;
             margin-bottom: 18px;
+            margin-right: 27px;
         }
 
         #captcha-container input {
             width: 48%;
             border-bottom: 1.5px solid #555;
-            border-radius: 0;
-            padding: 12px 15px;
+            border-radius: 0px;
+            padding: 12px 0 8px 10px;
             font-size: 0.9rem;
-            box-sizing: border-box; /* Ensure padding is inside the width */
+            box-sizing: border-box;
+        }
+
+        #captcha-container input:focus {
+            border-bottom-color: #eee;
+            outline: none;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px #008cff;
+            text-shadow: 0 0 3px rgba(255, 255, 255, 0.25);
         }
 
         #captcha {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             background-color: transparent;
-            padding: 12px 15px;
+            padding: 12px 1px;
             border-radius: 0;
             width: 48%;
             text-align: center;
@@ -332,6 +361,7 @@
         #captcha:hover {
             border-bottom-color: #fff;
             text-shadow: 0 0 3px #008cff;
+            transform: scale(1);
             color: #fff;
         }
 
@@ -403,8 +433,8 @@
         #forgot-password:hover,
         #signup-link:hover {
             color: #fff;
-            transform: translateX(3px);
-            text-shadow: 0 0 2px rgba(255, 255, 255, 0.15);
+            transform: translateX(3.5px);
+            text-shadow: 0 2px 5px #008cff;
         }
 
         #close-login {
@@ -449,15 +479,15 @@
         }
 
         #overlay {
-            display: none; /* Hidden by default */
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.6); /* Darker overlay for dimming effect */
-            backdrop-filter: blur(5px); /* Reduced blur for the page overlay */
-            z-index: 1000; /* Place the page overlay behind the login form (z-index: 1001 for login) */
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
         }
 
         /* New Styles for Added Sections */
@@ -796,7 +826,7 @@
         }
 
         .social-links li {
-            margin: 0 10px;
+            margin: 0 20px;
         }
 
         .social-links a {
@@ -806,42 +836,54 @@
         }
 
         .social-links a:hover {
-            color: #fff;
+            color: #ffffff;
+            text-shadow: 2px 2px 0px #008cff;
         }
 
         .copyright {
             font-size: 0.9rem;
             color: #999;
         }
-        #signup-container {
-            display: none;
-            visibility: visible;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: auto;
-            padding: 0;
-            background-color: transparent;
-            backdrop-filter: blur(10px);
-            z-index: 1001;
-            text-align: center;
-            border-radius: 10px;
-            animation: fadeIn 0.3s ease-out forwards;
-        }
+#signup-container {
+    display: none;
+    visibility: visible;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    padding: 0;
+    background-color: transparent;
+    backdrop-filter: none;
+    z-index: 1001;
+    text-align: center;
+    border-radius: 10px;
+    animation: fadeIn 0.8s ease-out forwards;
+}
 
 #signup-form {
-    padding: 30px;
-    background-color: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(15px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    padding: 25px 0px 50px 50px; 
+    background-color: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px); 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     border: none;
     border-radius: inherit;
     text-align: left;
-    width: 600px; /* Adjusted width for two columns */
+    width: 600px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
+}
+
+#signup-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 12px;
+    width: calc(100% - 24px);
+    height: 1.2px;
+    background: linear-gradient(to right, rgba(255,255,255,0), #ccc, rgba(255,255,255,0));
+    border-radius: 2px;
 }
 
 #signup-form h2 {
@@ -861,13 +903,14 @@
 
 #signup-inputs {
     grid-column: 1;
+    
 }
 
 #signup-options {
     grid-column: 2;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center; /* Make social buttons fill the width */
 }
 
 #signup-form .input-group {
@@ -887,7 +930,7 @@
 
 #signup-form .input-group label:hover {
     color: #fff;
-    text-shadow: 0 0 3px rgba(255, 255, 255, 0.2);
+    text-shadow: 0 3px 5px #008cff;
     transform: translateY(-3px);
 }
 
@@ -896,10 +939,10 @@
     padding: 12px 15px;
     border: none;
     border-bottom: 1.5px solid #555;
-    border-radius: 5px;
+    border-radius: 0;
     font-size: 0.9rem;
-    background-color: #f8f8f8;
-    color: #333;
+    background-color: transparent;
+    color: #eee;
     transition: border-bottom-color 0.2s, text-shadow 0.2s;
     text-shadow: 0 0 1px rgba(255, 255, 255, 0.03);
     box-sizing: border-box;
@@ -908,51 +951,95 @@
 #signup-form .input-group input:focus {
     border-bottom-color: #eee;
     outline: none;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px #008cff;
     text-shadow: 0 0 3px rgba(255, 255, 255, 0.25);
-    box-shadow: none;
 }
-
-#signup-btn {
-    background: #333;
-    margin-top: 20px;
-    padding: 12px 25px;
-    display: block;
+#signup-options a#signup-link {
+    padding: 10px 8px;
+    width: 100px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+#signup-options a#signup-link,#signup-form button,.signup-social-btn {
+    background: transparent;
+    margin-top: 5px;
+    margin-right: 0px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-justify:inter-word;
+    justify-items: center;
     font-size: 17px;
     font-weight: 700;
     text-decoration: none;
     cursor: pointer;
-    border: 1px solid #333;
+    border: 1px solid rgba(49, 46, 46, 0.897);
     border-radius: 25px;
     outline: none;
     overflow: hidden;
+    transform: scale(1.005);
     color: #fff;
-    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-    width: 100%;
+    background: rgba(255, 255, 255, 0.08);
+    transition: color 0.3s 0.1s ease-out;
 }
 
-#signup-btn:hover {
-    background: #555;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+#signup-options a#signup-link::before,#signup-form button::before,.signup-social-btn::before  {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    content: '';
+    border-radius: 50%;
+    display: block;
+    width: 21em;
+    height: 20em;
+    left: -5em;
+    text-align: center;
+    transition: box-shadow 0.5s ease-out;
+    z-index: -1;
+}
+
+#signup-options a#signup-link:hover,#signup-form button:hover,.signup-social-btn:hover {
+    color: #fff;
+    background: linear-gradient(140deg, #777, #555);
+    box-shadow: 0 3px 8px #008cff;
+    opacity: 1;
+    border: 1px solid rgb(27, 26, 26);
+}
+
+#signup-options a#signup-link:hover::before,#signup-form button:hover::before,.signup-social-btn:hover::before {
+    background: rgba(103, 99, 99, 0.783);
+    box-shadow: inset 0 0 0 10em rgb(36, 35, 35);
 }
 
 #signup-options > p {
     text-align: center;
     margin-top: 20px;
     color: #bbb;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
-#signup-options > p a {
+#signup-options > p a#show-login {
     color: #eee;
+    text-decoration: none;
+    transition: color 0.2s, transform 0.2s, text-shadow 0.2s;
+}
+
+#signup-options > p a#show-login:hover {
+    color: #fff;
     text-decoration: underline;
+    transform: translateX(3px);
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.15);
 }
 
 #signup-options > div {
     text-align: center;
     margin-top: 20px;
     color: #ddd;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 .signup-social-btn {
@@ -960,42 +1047,47 @@
     color: #eee;
     border: 1px solid #555;
     border-radius: 25px;
-    padding: 10px 20px;
-    margin-top: 10px;
+    padding: 10px 15px;
+    margin-top: 20px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
     text-decoration: none;
-    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    font-size: 0.8rem;
 }
-
-.signup-social-btn:hover {
-    background-color: #555;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-}
-
 .signup-social-btn i {
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 #close-signup {
     position: absolute;
     top: 10px;
-    right: 10px;
-    font-size: 1.5rem;
+    right: 12px;
+    padding: 10px 8px;
+    font-size: 1.6rem;
     color: #aaa;
     cursor: pointer;
-    background: none;
+    background: rgba(51, 51, 51, 0.6);
     border: none;
-    opacity: 0.7;
-    transition: opacity 0.2s;
+    opacity: 0.6;
+    transition: color 0.2s, opacity 0.2s, transform 0.3s ease-out, background-color 0.2s, text-shadow 0.2s;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.03);
+    border-radius: 100%;
+    height: 28px;
+    width: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
 }
-
-#close-signup:hover {
-    opacity: 1;
-    color: #eee;
+#close-signup:hover{
+    transition: 1s;
+    transform: rotate(90deg) scale(1.03);
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
+    background-color: rgba(85, 85, 85, 0.7);
 }
 
 .scroll {
@@ -1015,17 +1107,12 @@
     }
     50% {
         opacity: 0.5;
-        scale: 0.4;
+        scale: 0.5;
     }
     100% {
         opacity: 1;
         scale: 1;
     }
-}
-#signup-link:hover {
-    color: #008cff; 
-    transform: translateX(3px); 
-    text-shadow: 0 0 2px rgba(255, 255, 255, 0.15);
 }
 </style>
 </head>
@@ -1132,7 +1219,8 @@
         </form>
     </section> -->
 
-    <div id="overlay"></div> <div id="login-container">
+    <div id="overlay"></div> 
+    <div id="login-container">
         <div id="login-form">
             <button id="close-login">&times;</button>
             <h2>Login</h2>
@@ -1152,7 +1240,7 @@
             <a href="#" id="forgot-password" onclick="forgotPassword()">Forgot Password?</a>
             <a href="#" id="signup-link" onclick="signUp()">Sign Up</a>
         </div>
-
+    </div>
     <div id="signup-container">
         <div id="signup-form">
             <button id="close-signup">&times;</button>
@@ -1177,17 +1265,17 @@
             </div>
             <div id="signup-options">
                 <a href="#" id="signup-link">Sign Up</a>
-                <p style="text-align: center; color: #bbb; margin-top: 15px;">Already have an account? <a href="#" id="show-login" style="color: #eee; text-decoration: underline;">Log in</a></p>
+                <p style="text-align: center; color: #bbb; margin-top: 15px;">Already have an account? <a href="#" id="show-login" style="color: #eee; text-decoration: underline ;" onclick="again_log()">Log in</a></p>
                 <div style="text-align: center; color: #ddd; margin-top: 20px;">
                     Or
                     <div>
                         <a href="#" class="signup-social-btn"><i class="fab fa-google"></i> Sign up with Google</a>
                         <a href="#" class="signup-social-btn"><i class="fab fa-facebook-f"></i> Sign up with Facebook</a>
+                        <a href="#" class="signup-social-btn"><i class="fab fa-instagram"></i> Sign up with Instagram</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
     <div class="block">
     <footer>
@@ -1203,22 +1291,22 @@
                 <li><a href="#">Terms of Service</a></li>
             </ul>
             <ul class="social-links">
-                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                <li><a href="https://m.facebook.com/profile.php?id=100070254444907"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="https://github.com/shinchan-JR"><i class="fa fa-github"></i></a></li>
+                <li><a href="https://www.instagram.com/mr_lovable_?igsh=MWJoM3NsM2lkYmE0Zw=="><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://in.linkedin.com/"><i class="fab fa-linkedin-in"></i></a></li>
             </ul>
             <p class="copyright">&copy; 2024 Beautix. All rights reserved.</p>
         </div>
     </footer>
     </div>
 </div>
-
     <script>
-const loginButton = document.getElementById('log');
+        const loginButton = document.getElementById('log');
         const loginContainer = document.getElementById('login-container');
         const closeLoginButton = document.getElementById('close-login');
-        const pageOverlay = document.getElementById('overlay'); // Get page overlay element
+        const pageOverlay = document.getElementById('overlay');
+        const signupContainer = document.getElementById('signup-container');
 
         loginButton.addEventListener('click', () => {
             loginContainer.style.display = 'flex';
@@ -1249,8 +1337,10 @@ const loginButton = document.getElementById('log');
             const loginId = document.getElementById("login-id").value;
             const password = document.getElementById("password").value;
             const userInput = document.getElementById("captcha-input").value;
-
-            if (userInput === captchaText) {
+            if(loginId.length==0 && password.length==0) {
+                alert("Login Id and password required !");
+            }
+            else if (userInput === captchaText) {
                 alert("Login successful!");
                 localStorage.setItem('loginId', loginId);
                 loginContainer.style.display = 'none';
@@ -1267,48 +1357,54 @@ const loginButton = document.getElementById('log');
         }
 
         function signUp() {
-            // alert("Sign Up functionality would be implemented here."); // Removed the alert
+            loginContainer.style.display = 'none';
+            signupContainer.style.display = 'flex';
+            pageOverlay.style.display = 'block';
+        }
 
-            loginContainer.style.display = 'none'; // Hide login container
-            signupContainer.style.display = 'flex'; // Show signup container
-            pageOverlay.style.display = 'block'; // Show overlay
+        function again_log() {
+            signupContainer.style.display = 'none';
+            loginContainer.style.display = 'flex';
+            pageOverlay.style.display = 'block';
+            const cachedLoginId = localStorage.getItem('loginId');
+            if (cachedLoginId) {
+                document.getElementById('login-id').value = cachedLoginId;
+            }
         }
 
         generateCaptcha();
 
-        const signupLinkBtn = document.getElementById('signup-link'); // Corrected ID to 'signup-link'
-        const signupContainer = document.getElementById('signup-container');
+        const signupLinkBtn = document.getElementById('signup-link');
+        const signupContainerElem = document.getElementById('signup-container'); // Using a different variable name to avoid confusion with the function name
         const closeSignupButton = document.getElementById('close-signup');
 
         signupLinkBtn.addEventListener('click', (event) => {
-            event.preventDefault(); // Prevent the default link behavior (if it's an <a> tag)
-            loginContainer.style.display = 'none'; // Hide login container
-            signupContainer.style.display = 'flex'; // Show signup container
-            pageOverlay.style.display = 'block'; // Show overlay
+            event.preventDefault();
+            loginContainer.style.display = 'none';
+            signupContainerElem.style.display = 'flex';
+            pageOverlay.style.display = 'block';
         });
 
         closeSignupButton.addEventListener('click', () => {
-            signupContainer.style.display = 'none';
+            signupContainerElem.style.display = 'none';
             pageOverlay.style.display = 'none';
         });
 
-        const showLoginLink = document.getElementById('show-login');
+        const showLoginLink = document.getElementById('login-link'); // Corrected ID here
         if (showLoginLink) {
             showLoginLink.addEventListener('click', (event) => {
                 event.preventDefault();
-                signupContainer.style.display = 'none';
+                signupContainerElem.style.display = 'none';
                 loginContainer.style.display = 'flex';
             });
         }
 
         function validateSignup() {
-            // Add your signup validation logic here
             alert("Sign Up functionality would be implemented here (validation needed!).");
         }
 
-        // Initially hide the signup container
-        if (signupContainer) {
-            signupContainer.style.display = 'none';
+        if (signupContainerElem) {
+            signupContainerElem.style.display = 'none';
         }
     </script>
 </body>
